@@ -3,6 +3,4 @@
 def islower(c):
     num = ord('c')
     if num in range(ord('a'), ord('{')):
-        return True
-    else:
-	return False
+        return
