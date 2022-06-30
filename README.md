@@ -1,1 +1,1 @@
-An in depth look at higher level programming
+A look at higher level programming with python
