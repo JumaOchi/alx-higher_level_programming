@@ -1,11 +1,15 @@
 #!/usr/bin/python3
 
+
 def new_in_list(my_list, idx, element):
-    
+
+    copy = []
+    for num in my_list:
+        copy.append(num)
     if idx < 0:
-        new_list = my_list.copy()
-    elif idx > len(my_list):
-        new_list = my_list.copy()
+        return copy
+    elif idx >= len(my_list):
+        return copy
     else:
-        new_list = my_list.insert(idx, element)
-    return new_list
+        copy[idx] = element
+        return copy
