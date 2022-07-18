@@ -2,5 +2,6 @@
 
 
 def raise_exception():
+
 	b = 'a'
-	print(1 + b)
+	print(1 * b)
