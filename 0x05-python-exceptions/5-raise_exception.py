@@ -3,5 +3,5 @@
 
 def raise_exception():
 
-	b = 'a'
-	print(1 * b)
+    b = 'a'
+    print(1 / b)

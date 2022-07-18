@@ -1,1 +1,1 @@
-A look at higher level programming with python
+This repo explores higher level programming with python programming language and others
