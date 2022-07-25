@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """
-Rectangle an object with parallel equal opposite sides management module
+Rectangle management module
 """
 
 
 class Rectangle:
-        """define variables and methods"""
-            pass
+    """define variables and methods"""
+    pass
