@@ -1,6 +1,9 @@
 #!/usr/bin/python3
+"""
+Rectangle an object with parallel equal opposite sides management module
+"""
 
 
 class Rectangle:
-	"""A figure with two equal and opposite sides"""
-	{}
+        """define variables and methods"""
+            pass
