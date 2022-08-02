@@ -1,10 +1,13 @@
 #!/usr/bin/python3
 """
-1-number_of_lines module
+3-write_file module
 """
 
 
-def number_of_lines(filename=""):
-    """function that returns the number of lines of a text file"""
-    with open(filename, 'r') as f:
-        return len(f.readlines())
+def write_file(filename="", text=""):
+    """
+    function that writes a string to a text file (UTF8)
+    and returns the number of characters written
+    """
+    with open(filename, 'w') as wf:
+        return wf.write(str(text))
