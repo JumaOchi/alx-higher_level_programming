@@ -3,25 +3,15 @@
 add_item module
 """
 
-import sys
+from sys import argv
 save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
 load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
 
+filename = "add_item.json"
 
-def add_items():
-    """
-    function that adds all arguments to a Python list
-    and then saves them to a file
-    """
-    try:
-        python_list = load_from_json_file('add_item.json')
-    except:
-        python_list = []
+try:
+        existing_content = load_from_json_file(filename)
+except FileNotFoundError:
+        existing_content = []
 
-    for i in range(1, len(sys.argv)):
-        python_list.append(sys.argv[i])
-
-    save_to_json_file(python_list, 'add_item.json')
-
-if __name__ == '__main__':
-    add_items()
+        save_to_json_file(existing_content + argv[1:], filename)
