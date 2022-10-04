@@ -1,5 +1,3 @@
 #!/usr/bin/node
-
-console.log('C is fun');
-console.log('Python is cool');
-console.log('Javascript is amaizing');
+const myArray = ['C is fun', 'Python is cool', 'Javascript is amazing'];
+myArray.forEach(element => console.log(element));
