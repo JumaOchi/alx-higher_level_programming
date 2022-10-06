@@ -11,7 +11,7 @@ module.exports = class Square extends require('./5-square') {
 	if (c === undefined) {
           process.stdout.write('X');
 	} else {
-	  process.stdout.write('C');
+	  process.stdout.write('c');
 	}
       }
       console.log("");
