@@ -1,19 +1,33 @@
 #!/usr/bin/node
 
-const myArray = process.argv.slice(2);
 const request = require('request');
 
-request(myArray[0], function (error, response, body) {
-  if (error) console.error('error:', error); // Print the error if one occurred
-  const newDict = {};
-  if (JSON.parse(body)) {
-    let count = 0;
-    let userIdref = 0;
-    JSON.parse(body).forEach(dict => {
-      if (dict.userId !== userIdref) { userIdref = dict.userId; count = 0; if (dict.completed) { count++; newDict[userIdref] = count; } } else {
-        if (dict.completed) { count++; newDict[userIdref] = count; }
-      }
-    });
+const url = process.argv[2];
+
+request(url, function (error, response, body) {
+  if (error) {
+    console.error('error:', error);
   }
-  console.log(newDict);
+
+  const data = JSON.parse(body);
+  const result = {};
+  let id = 0;
+
+  for (let i = 0; i < data.length; i++) {
+    if (data[i].userId === id) {
+      continue;
+    } else {
+      id = data[i].userId;
+    }
+    let tasks = 0;
+    for (let j = 0; j < data.length; j++) {
+      if (data[j].userId === id && data[j].completed === true) {
+        tasks++;
+      }
+    }
+    if (tasks > 0) {
+      result[id] = tasks;
+    }
+  }
+  console.log(result);
 });
