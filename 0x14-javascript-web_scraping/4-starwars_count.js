@@ -1,15 +1,25 @@
 #!/usr/bin/node
 
-const myArray = process.argv.slice(2);
 const request = require('request');
 
-request(myArray[0], function (error, response, body) {
-  if (error) { console.log(error); } else {
-    const results = JSON.parse(body).results;
-    let count = 0;
-    if (results && results.length >= 1) {
-      results.forEach(dict => { if (dict.characters.includes('https://swapi-api.hbtn.io/api/films/people/18/')) { count++; } });
-    }
-    console.log(count);
+const url = process.argv[2];
+
+request(url, function (error, response, body) {
+  if (error) {
+    console.error('error:', error);
   }
+
+  const data = JSON.parse(body).results;
+  let appearances = 0;
+
+  for (let i = 0; i < data.length; i++) {
+    const chars = data[i].characters;
+    for (let j = 0; j < chars.length; j++) {
+      if (chars[j] === 'https://swapi-api.hbtn.io/api/people/18/') {
+        appearances++;
+      }
+    }
+  }
+
+  console.log(appearances);
 });
