@@ -8,7 +8,7 @@ request(myArray[0], function (error, response, body) {
     const results = JSON.parse(body).results;
     let count = 0;
     if (results && results.length >= 1) {
-      results.forEach(dict => { if (dict.characters.includes('https://swapi.co/api/people/18/')) { count++; } });
+      results.forEach(dict => { if (dict.characters.includes('https://swapi-api.hbtn.io/api/films/people/18/')) { count++; } });
     }
     console.log(count);
   }
